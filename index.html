@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+</head>
+<body>
+    <div class="contenedorPrincipal">
+
+        <div class="encabezado">
+            <img src="imagenes/Logo.png"/ class="imagenLogo">
+        </div>
+
+        <div class="areaInputTexto">
+            <input type="text" class="inputTexto" placeholder="Escribe el texto a encriptar"/>
+        </div>
+
+        <div class="seccionRespuesta">
+            <p class="respuesta">Respuesta</p>
+            <img src="imagenes/Muñeco.png" class="imagenmuneco"/>
+            <p class="mensaje">Ningún mensaje fue encontrado,
+                    Ingresa el texto que desees encriptar o desencriptar.
+            </p>
+            <button class="botonCopiar">Copiar</button>
+        </div>
+
+        <div class="seccionBotones">
+                            
+                <div class="seccionAlerta">
+                    <img src="imagenes/bi_exclamation-circle-fill.png" class="imagesexclamation"/>
+                    <p>Solo letras minúsculas y sin acentos</p>
+                </div>
+                <div class="botonesED">
+                    <button class="boton" id="botonencriptar">Encriptar</button>
+                    <button class="boton" id="botondesencriptar">Desencriptar</button>
+                </div>                
+
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tingresado = document.querySelector('.inputTexto');      
+            const botonencriptar = document.querySelector('#botonencriptar');
+            const botondesencriptar = document.querySelector('#botondesencriptar');
+            const botonCopiar = document.querySelector('.botonCopiar');  
+            const textoACopiar = document.querySelector('.respuesta');
+
+            function encriptar(texto){
+                const cadenasplit = texto.split('');
+                let nuevastring = '';
+                
+                for(var indice=0; indice < cadenasplit.length; indice++){
+        
+                    if(cadenasplit[indice] == "e"){
+                        nuevastring += 'enter';
+                    }else if(cadenasplit[indice] == "i"){
+                        nuevastring += 'imes';
+                    }else if(cadenasplit[indice] == "a"){
+                        nuevastring += 'ai';
+                    }else if(cadenasplit[indice] == "o"){
+                        nuevastring += 'ober';
+                        
+                    }else if(cadenasplit[indice] == "u"){
+                        nuevastring += 'ufat';
+        
+                    }else{
+                        nuevastring += cadenasplit[indice];
+                    }  
+                }
+                return nuevastring;           
+            }
+        
+            function desencriptar(texto){
+
+                const cadenasplit = texto.split('');
+                let nuevastring = '';
+        
+                for(var indice = 0; indice < cadenasplit.length; indice++){
+                    if(cadenasplit[indice] == "e"){
+                        indice = indice + 4;
+                        nuevastring += "e";
+                    }else if(cadenasplit[indice] == "a"){
+                        indice = indice + 1;
+                        nuevastring += "a";
+                    }else if(cadenasplit[indice] == "i"){
+                        indice = indice + 3;
+                        nuevastring += "i";                
+                    }else if(cadenasplit[indice] == "o"){
+                        indice = indice + 3;
+                        nuevastring += "o";                
+                    }else if(cadenasplit[indice] == "u"){
+                        indice = indice + 3;
+                        nuevastring += "u";
+                        
+                    }else{
+                        nuevastring += cadenasplit[indice];                   
+                    }
+                }
+                return nuevastring; 
+            }   
+            
+            function ocultarElementos(){
+                document.querySelector('.imagenmuneco').style.display = "none";
+                document.querySelector('.mensaje').style.display = "none";
+            }
+        
+            function mostrarResultado(texto){
+                document.querySelector('.respuesta').style.display = 'block';
+                document.querySelector(".respuesta").textContent = texto;
+                document.querySelector('.botonCopiar').style.display = 'block';
+            }
+            
+            function copiarTexto(){
+                const valor = textoACopiar.textContent;
+                navigator.clipboard.writeText(valor);
+            }
+        
+            botondesencriptar.onclick = function(){
+                ocultarElementos();
+                ocultarElementos();
+                const textomandar = desencriptar(tingresado.value);
+                mostrarResultado(textomandar);
+            }
+        
+        
+            botonencriptar.onclick = function(){
+                ocultarElementos();
+                const textomandar = encriptar(tingresado.value);
+                mostrarResultado(textomandar);
+            }
+        
+            botonCopiar.onclick=function(){
+                copiarTexto();
+            }
+        });
+    </script>
+</body>
+</html>

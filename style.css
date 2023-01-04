@@ -1,0 +1,176 @@
+.imagenLogo{
+    position: static;
+    margin: 15px 0 0 6em;
+}
+
+html{
+    background-color: #edede9 ;
+}
+
+/*SECCION DE CONTENEDOR PRINCIPAL -------------*/
+
+.contenedorPrincipal{
+    display: grid;    
+    height: 900px;
+    grid-template-areas:    'Encabezado Encabezado'
+                            'inputTexto CuadroRespuesta'
+                            'seccionBotones CuadroRespuesta';   
+    grid-template-rows: 10% 70% 20%;
+    grid-template-columns: 70% auto;
+}
+
+/*SECCION DEL ENCABEZADO -------------*/
+
+.encabezado{
+    grid-area: Encabezado;
+}
+
+/*SECCION DEL INPUT TEXTO -------------*/
+
+.areaInputTexto{
+    grid-area: inputTexto;
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+.inputTexto{
+    display: flex;
+    background: #edede9;
+    width: 700px;
+    height: 50px;
+    border: none;
+    font-size: 30px;
+    transition: 1s;
+    border-radius: 10px;
+}
+
+.inputTexto:hover{
+    background-color: #d6ccc2;
+    border-radius: 10px;
+}
+
+.inputTexto:focus{
+    outline:none;
+}
+
+
+
+/*SECCION AREA DE RESPUESTA -------------*/
+
+.seccionRespuesta{
+    grid-area: CuadroRespuesta;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1em 1em;
+    align-items: center;
+    width: 450px;
+    height: 750px;
+    padding: 10px;
+    
+    border-radius: 5px;
+    text-align: center;
+    
+    font-size: 20px;
+    box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+    border-radius: 32px; 
+}
+
+.respuesta{
+    width: 100%;
+    height: auto;
+    display: none;
+}
+
+.imagenmuneco{
+    right: 25px;
+    width: auto;    
+}
+
+.mensaje{
+    width: 80%;  
+}
+
+.botonCopiar{
+    align-items:stretch;
+    background: #d6ccc2 ;
+    display: none;
+    border: none;
+    border-radius: 10px;
+    transition: 1s;
+    width: 250px;
+    height: 50px;
+}
+
+.botonCopiar:hover{
+    background: #d2b69c;
+}
+
+.botonCopiar:active{
+    background: orangered;
+    transition: 1ms;
+}
+
+
+/*SECCION BOTONES -------------*/
+
+.seccionBotones{
+    grid-area: seccionBotones;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.imagesexclamation{
+    width: 20px;
+    height: 20px;
+}
+
+.seccionAlerta{
+    display: flex;
+    align-items: center;
+    left:450px;
+    display: flex;    
+}
+
+.botonesED{
+    display: flex;
+    gap:20px;
+}
+
+.boton{
+    background-color: #d6ccc2;
+    left:450px; 
+    width: 250px;
+    height: 50px;
+    gap: 30px;
+    border: none;
+    border-radius: 10px;
+    transition: 1s;
+}
+
+.boton:hover{
+    border: none;
+    background-color: #d2b69c;
+}
+
+.boton:active{
+    transition: 1ms;
+    background: orangered;
+}
+
+@media screen and (min-width: 1920px){
+    .botonesED{
+        margin-left: 450px;
+    }
+
+    .seccionAlerta{
+        margin-left: 450px;
+    }
+
+    .areaInputTexto{
+        margin-left: 450px;
+    }
+}
