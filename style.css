@@ -10,11 +10,12 @@ html{
 /*SECCION DE CONTENEDOR PRINCIPAL -------------*/
 
 .contenedorPrincipal{
-    display: grid;    
+    display: grid;
     height: 900px;
-    grid-template-areas:    'Encabezado Encabezado'
-                            'inputTexto CuadroRespuesta'
-                            'seccionBotones CuadroRespuesta';   
+    grid-template-areas:
+        'Encabezado Encabezado'
+        'inputTexto CuadroRespuesta'
+        'seccionBotones CuadroRespuesta';
     grid-template-rows: 10% 70% 20%;
     grid-template-columns: 70% auto;
 }
@@ -32,6 +33,7 @@ html{
     display: flex;
     flex: 1;
     align-items: center;
+    
 }
 
 .inputTexto{
@@ -43,6 +45,7 @@ html{
     font-size: 30px;
     transition: 1s;
     border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
 }
 
 .inputTexto:hover{
@@ -66,8 +69,8 @@ html{
     justify-content: center;
     margin: 1em 1em;
     align-items: center;
-    width: 450px;
-    height: 750px;
+    width: auto;
+    height: auto;
     padding: 10px;
     
     border-radius: 5px;
@@ -82,6 +85,7 @@ html{
     width: 100%;
     height: auto;
     display: none;
+    font-family: 'Poppins', sans-serif;
 }
 
 .imagenmuneco{
@@ -91,6 +95,7 @@ html{
 
 .mensaje{
     width: 80%;  
+    font-family: 'Poppins', sans-serif;
 }
 
 .botonCopiar{
@@ -130,9 +135,9 @@ html{
 
 .seccionAlerta{
     display: flex;
-    align-items: center;
-    left:450px;
-    display: flex;    
+    align-items: center;   
+    gap: 10px;
+    font-family: 'Coda Caption', sans-serif;
 }
 
 .botonesED{
@@ -149,6 +154,7 @@ html{
     border: none;
     border-radius: 10px;
     transition: 1s;
+    font-family: 'Coda Caption', sans-serif;
 }
 
 .boton:hover{
@@ -162,15 +168,78 @@ html{
 }
 
 @media screen and (min-width: 1920px){
-    .botonesED{
+    .seccionBotones, .areaInputTexto{
+        
         margin-left: 450px;
     }
+ 
 
-    .seccionAlerta{
-        margin-left: 450px;
+
+}
+
+@media screen and (max-width: 768px){
+    .contenedorPrincipal{
+        grid-template-areas:
+        'Encabezado Encabezado'
+        'inputTexto inputTexto'
+        'seccionBotones seccionBotones'
+        'CuadroRespuesta CuadroRespuesta';
     }
 
     .areaInputTexto{
-        margin-left: 450px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .inputTexto{
+        width: 688px;
+        height: 48px;
+    }
+
+    .imagenmuneco{
+        display: none;
+    }
+
+    .botonesED{
+        display: flex;        
+        justify-content: flex-start;
+        
+        margin: 0 auto;
+        width: 100%;
+        height: 67px;
+    }
+
+    .boton{
+        width: 332px;
+        height: 67px;
+        
+    }
+
+    .seccionRespuesta{
+        margin-top: 140px;
+    }
+}
+
+@media screen and (max-width: 375px){
+
+    .botonesED{
+        display: flex;   
+        flex-direction: column;     
+        justify-content: flex-start;
+        
+        margin: 0 auto;
+        width: 100%;
+        height: auto;
+    }
+
+    .boton{
+        width: 100%;
+        height: 70px;
+        
+    }
+
+    .seccionRespuesta{
+        margin-top: 140px;
     }
 }
